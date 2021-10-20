@@ -5,7 +5,7 @@ import json
 
 alphabet = string.ascii_uppercase
 
-rotor_nmbr = int(input('Which number rotor(1-8): '))
+rotor_nmbr = input('Which number rotor(1-8): ')
 
 user_inp = input('Rotor string for encoding: ')
 

@@ -63,6 +63,12 @@ encrypt_rotor(rotor_number -> int, value -> str, offset -> str):
     return rotors[rotor_number][return_value] 
 ```
 
+## TODO
+
+Every piece is here, but just need to combine them. Important thing that I need to implement is the reverse rotors, though that will be easy, just reverse lists of rotor_order and init_offset.
+
+The only thing really missing is if the rotors move before they give the values or after, but that is easy to implement after I get the knowledge. It also doesn't effect the functionality of the machine, it will just annoy me.
+
 
 ## Weaknesses
 
