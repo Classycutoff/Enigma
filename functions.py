@@ -82,8 +82,7 @@ def use_enigma(rotor_order, init_offset, plugboard, msg):
     for letter in msg:
         temp_result = ''
         if letter in plugboard:
-            result.append(plugboard[letter])
-            continue
+            letter = plugboard[letter]
         offset = rotor_turn(
             rotor_order, offset)
         print('init offset', init_offset)
