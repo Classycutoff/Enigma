@@ -6,6 +6,8 @@ alphabet = string.ascii_uppercase
 
 # plugboard stuff
 
+# Makes so both pairs are in plugboard_dict
+
 
 def plugboard_dict(plugs):
     temp = {}
@@ -20,10 +22,11 @@ def plugboard_dict(plugs):
 with open('rotors.json') as f:
     rotor_dict = json.load(f)
 
-reverse_rotor = {}
-for i in rotor_dict:
-    reverse_rotor[i] = dict(
-        (y, x) for x, y in rotor_dict[i].items() if not isinstance(y, list))
+with open('reverse_rotors.json') as f:
+    reverse_rotor = json.load(f)
+
+# Checks if the value is coming from the interface or reflector. If it comes from the interface, it will just add the offset.
+# If it comes from reflector, then it will first encrypt the value, and then subtracts the offset from the value
 
 
 def encrypt_rotor(rotor_number, value, offset, rot_dict, rev):
@@ -36,15 +39,12 @@ def encrypt_rotor(rotor_number, value, offset, rot_dict, rev):
         return alphabet[(alphabet.index(return_value) - alphabet.index(offset) + 26) % 26]
 
 
-"""
-MULTIPLE_ROTORS AND ROTOR_TURN NEEDS TESTING, SO EVERYTHING WORKS WELL!!!!!!!!
-"""
-
-
 def multiple_rotors(rotor_order, offset, val, rot_dict, rev):
     for i in range(len(rotor_order)):
         val = encrypt_rotor(rotor_order[i], val, offset[i], rot_dict, rev)
     return val
+
+# Turn's rotor offset.
 
 
 def rotor_turn(rotor_order, offset):
@@ -75,18 +75,19 @@ msg: string, with the message that needs encrypting
 
 
 def use_enigma(rotor_order, init_offset, plugboard, msg):
-    # Making the plugboard to have both of the letters that are connected into the dict.
+    # Needs a deepcopy so it doesn't affect the initial offset list.
     offset = copy.deepcopy(init_offset)
+    # Making the plugboard to have both of the letters that are connected into the dict.
     plugboard = plugboard_dict(plugboard)
     result = []
+
     for letter in msg:
         temp_result = ''
         if letter in plugboard:
             letter = plugboard[letter]
+
         offset = rotor_turn(
             rotor_order, offset)
-        print('init offset', init_offset)
-        print('offset', offset)
         temp_result = multiple_rotors(
             rotor_order, offset, letter, rotor_dict, True)
         temp_result = reflector('UKW-B', temp_result)
