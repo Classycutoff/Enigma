@@ -8,6 +8,9 @@ for i in rotor_dict:
     reverse_rotor[i] = dict(
         (y, x) for x, y in rotor_dict[i].items() if not isinstance(y, list))
 
+with open('reverse_rotors.json', 'w+') as f:
+    json.dump(reverse_rotor, f)
+
 print(reverse_rotor)
 
 

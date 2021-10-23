@@ -15,9 +15,15 @@ If you need to decode a msg, you just put the same initial values, and it will r
 
 Basically just switches the alphabet[n] character to alphabet[-n-1] character. Easy to implement.
 
+**CORRECTION!!!!!!**
+Reflector is basically one of the rotors, so it isn't as simple as just what I said. The pair of characters still are basically connected, so A = Y and Y = A, but they are not in any particular order. Still easy to implement, since I found the exchange tables, and have put it into the json table.
+
 ## Plugboard
 
 Even easier, if the char is in connected to the plugboard, both of them will switch places in the end result.
+
+**CORRECTION!!!!!!**
+Plugboard switches the characters, but it will still go through the rotors and encrypt it. This is still easy to implement, since I just need to switch the letters to corresponding ones if need be.
 
 ## Rotors
 
@@ -51,7 +57,7 @@ First one always turns. Each next one relies on the previous one to turn at desi
 
 Depends, earlier it was three, but was further increased to four. Might do a rotor function, which takes in a list of the rotors, and prosesses the data accordingly, so you could have theoretically a twelve rotor enigma machine.
 
-## Rotor rambling
+### Rotor rambling
 
 So the rotors have a encrypting that doesn't change. what does change is the offset that the letters come in. So if the rotor is set to A, it will take all the letters and encode them normally. But if it is B, it will move them up by one etc etc... 
 
@@ -62,6 +68,10 @@ encrypt_rotor(rotor_number -> int, value -> str, offset -> str):
     return_value = alphabet[(alphabet.index(value) + alphabet.index(offset)) % 26]
     return rotors[rotor_number][return_value] 
 ```
+
+### Rotor Rambling pt. 2
+
+So, now I have fixed the rotor encryption, where you can get the same letter back when you have the same settings etc etc. I had to do a reverse rotor table, because when the signal first comes to the rotor, A might be D. But the reverse will happen once it travels through it backwards, so D is A, and A was something that was reverse of something in the first table. I just need to figure out how to do that for all of the rotors
 
 ## TODO
 
