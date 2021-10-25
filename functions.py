@@ -12,7 +12,8 @@ alphabet = string.ascii_uppercase
 def plugboard_dict(plugs):
     temp = {}
     for i in plugs:
-        temp[plugs[i]] = i
+        if i in alphabet:
+            temp[plugs[i]] = i
     plugs.update(temp)
     return plugs
 
@@ -82,6 +83,9 @@ def use_enigma(rotor_order, init_offset, plugboard, msg):
     result = []
 
     for letter in msg:
+        if letter not in alphabet:
+            result.append(letter)
+            continue
         temp_result = ''
         if letter in plugboard:
             letter = plugboard[letter]

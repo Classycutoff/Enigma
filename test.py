@@ -11,7 +11,7 @@ testRorder = [1, 1, 1]
 
 test_offset = ['A', 'A', 'A']
 
-test_string = 'AAAAA'
+test_string = 'AA AAA!'
 
 
 # test = 'A'
@@ -28,7 +28,7 @@ test_string = 'AAAAA'
 #     testRorder[::-1], test_offset[::-1], test, reverse_rotor, False)
 # print(test)
 
-
+print(test_string)
 test = use_enigma(testRorder, test_offset, {}, test_string)
 print(test)
 print(use_enigma(testRorder, test_offset, {}, test))
