@@ -98,6 +98,9 @@ def use_enigma(rotor_order, init_offset, plugboard, msg):
         temp_result = multiple_rotors(
             rotor_order[::-1], offset[::-1], temp_result, reverse_rotor, False)
         result.append(temp_result)
+
+        if letter in plugboard:
+            letter = plugboard[letter]
     return ''.join(result)
 
 # TODO Add functions multiple_rotors and rotor_turn to the main function use_enigma
