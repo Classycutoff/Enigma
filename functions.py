@@ -82,7 +82,9 @@ def use_enigma(rotor_order, init_offset, plugboard, msg):
     plugboard = plugboard_dict(plugboard)
     result = []
 
-    for letter in msg:
+    temp_msg = msg.upper()
+
+    for letter in temp_msg:
         if letter not in alphabet:
             result.append(letter)
             continue

@@ -11,7 +11,7 @@ testRorder = [1, 1, 1]
 
 test_offset = ['A', 'A', 'A']
 
-test_string = 'AA AAA!'
+test_string = "Does this work. This is a test.123324578r)(!/¤)(/"
 
 
 # test = 'A'
