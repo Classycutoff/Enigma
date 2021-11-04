@@ -11,7 +11,24 @@ testRorder = [1, 1, 1]
 
 test_offset = ['A', 'A', 'A']
 
-test_string = "Does this work. This is a test.123324578r)(!/¤)(/"
+test_string = 'A' * 2000
+
+encrypted = use_enigma(testRorder, test_offset, {}, test_string)
+
+print(encrypted)
+
+for i in encrypted:
+    if i == 'A':
+        print('Fail')
+        break
+
+# test_string = "Does this work. This is a test.123324578r)(!/¤)(/"
+
+# print(test_string)
+# test = use_enigma(testRorder, test_offset, {}, test_string)
+# print(test)
+# print(use_enigma(testRorder, test_offset, {}, test))
+
 
 
 # test = 'A'
@@ -28,10 +45,10 @@ test_string = "Does this work. This is a test.123324578r)(!/¤)(/"
 #     testRorder[::-1], test_offset[::-1], test, reverse_rotor, False)
 # print(test)
 
-print(test_string)
-test = use_enigma(testRorder, test_offset, {}, test_string)
-print(test)
-print(use_enigma(testRorder, test_offset, {}, test))
+# print(test_string)
+# test = use_enigma(testRorder, test_offset, {}, test_string)
+# print(test)
+# print(use_enigma(testRorder, test_offset, {}, test))
 
 
 #print(reflector('UKW-B', test_string))
