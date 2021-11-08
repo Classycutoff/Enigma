@@ -31,7 +31,7 @@ with open('reverse_rotors.json') as f:
 
 
 def encrypt_rotor(rotor_number, value, offset, rot_dict, rev):
-    if rev:
+    if not rev:
         return_value = alphabet[(alphabet.index(
             value) + alphabet.index(offset)) % 26]
         return rot_dict[str(rotor_number)][return_value]
@@ -75,7 +75,7 @@ msg: string, with the message that needs encrypting
 """
 
 
-def use_enigma(rotor_order, init_offset, plugboard, msg):
+def use_enigma(rotor_order, init_offset, plugboard, reflec, msg):
     # Needs a deepcopy so it doesn't affect the initial offset list.
     offset = copy.deepcopy(init_offset)
     # Making the plugboard to have both of the letters that are connected into the dict.
@@ -88,21 +88,24 @@ def use_enigma(rotor_order, init_offset, plugboard, msg):
         if letter not in alphabet:
             result.append(letter)
             continue
-        temp_result = ''
+
         if letter in plugboard:
             letter = plugboard[letter]
+
+        temp_result = ''
 
         offset = rotor_turn(
             rotor_order, offset)
         temp_result = multiple_rotors(
-            rotor_order, offset, letter, rotor_dict, True)
-        temp_result = reflector('UKW-B', temp_result)
+            rotor_order, offset, letter, rotor_dict, False)
+        temp_result = reflector(reflec, temp_result)
         temp_result = multiple_rotors(
-            rotor_order[::-1], offset[::-1], temp_result, reverse_rotor, False)
+            rotor_order[::-1], offset[::-1], temp_result, reverse_rotor, True)
+        if temp_result in plugboard:
+            temp_result = plugboard[temp_result]
+
         result.append(temp_result)
 
-        if letter in plugboard:
-            letter = plugboard[letter]
     return ''.join(result)
 
 # TODO Add functions multiple_rotors and rotor_turn to the main function use_enigma

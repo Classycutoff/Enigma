@@ -11,7 +11,13 @@ testRorder = [1, 1, 1]
 
 test_offset = ['A', 'A', 'A']
 
-test_string = "Does this work. This is a test.123324578r)(!/¤)(/"
+test_plug = {'K': 'E', 'T': 'W', 'B': 'R'}
+
+# test_plug = {}
+
+test_string = "What the hell?"
+
+test_refl = 'UKW-B'
 
 
 # test = 'A'
@@ -29,9 +35,9 @@ test_string = "Does this work. This is a test.123324578r)(!/¤)(/"
 # print(test)
 
 print(test_string)
-test = use_enigma(testRorder, test_offset, {}, test_string)
+test = use_enigma(testRorder, test_offset, test_plug, test_refl, test_string)
 print(test)
-print(use_enigma(testRorder, test_offset, {}, test))
+print(use_enigma(testRorder, test_offset, test_plug, test_refl, test))
 
 
 #print(reflector('UKW-B', test_string))
