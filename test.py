@@ -20,6 +20,24 @@ test_string = "What the hell?"
 test_refl = 'UKW-B'
 
 
+# test_string = 'A' * 2000
+# encrypted = use_enigma(testRorder, test_offset, {}, test_refl, test_string)
+
+# print(encrypted)
+
+# for i in encrypted:
+#     if i == 'A':
+#         print('Fail')
+#         break
+
+# test_string = "Does this work. This is a test.123324578r)(!/¤)(/"
+
+# print(test_string)
+# test = use_enigma(testRorder, test_offset, {}, test_string)
+# print(test)
+# print(use_enigma(testRorder, test_offset, {}, test))
+
+
 # test = 'A'
 # print(test)
 # test = multiple_rotors(testRorder, test_offset, test, rotor_dict, True)
