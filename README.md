@@ -1,5 +1,7 @@
 # Enigma
 
+**TO RUN THE MACHINE, RUN main.py**
+
 This is for algorithms course, to recreate the enigma machine with code.
 
 For it we need:
