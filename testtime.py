@@ -43,4 +43,4 @@ testcode = "use_enigma(testRorder, test_offset, test_plug, test_refl, test_strin
 print("Running encryption algorithm {} times for a message with length of {}..".format(number_of_executions, len(message)))
 time = timeit.timeit(stmt=testcode, setup=import_setup, number=number_of_executions)
 timeavgper = float(time / number_of_executions)
-print("Total execution time was {}\nAVG time per one execution was {:f}".format(time,timeavgper))
+print("Total execution time was {} seconds\nAVG time per one execution was {:f} seconds".format(time,timeavgper))
