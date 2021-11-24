@@ -39,10 +39,10 @@ test_string = 'TEST_STRING'
 
 while True:
   print("Script for testing the time of simulated enigma encryption. Press CTRL+C to quit")
-  msglength = input("Give message length for testing: ")
+  msglength = input("Give message length for testing, message is generated randomly.\n> ")
   if msglength.isnumeric() == True:
     msglength = int(msglength)
-    numexecutions = input("How many times do you want to run the execution?: ")
+    numexecutions = input("How many times do you want to run the execution? Recommended values 1000 - 100 000\nValues above 100 000 may take several seconds, especially for long messages.\n> ")
     if numexecutions.isnumeric() == True:
       numexecutions = int(numexecutions)
       testAlgorithmTime(msglength,numexecutions)
