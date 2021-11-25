@@ -1,6 +1,20 @@
-# Enigma
+# Enigma  
 
-**TO RUN THE MACHINE, RUN main.py**
+## Running Enigma
+
+- **CD TO THE PROJECT REPO ROOT**
+  - **COPY AND RUN THIS CODE TO RUN THE INTERFACE:**
+
+    project_env\Scripts\activate.bat
+    python Program\app.py
+
+  - **COPY AND RUN THIS CODE TO RUN THE TERMINAL VERSION:**
+    
+    project_env\Scripts\activate.bat
+    python Program\main.py
+
+**INCLUDE THE WHITESPACE AFTER THE LAST CMD TO RUN EVERYTHING AT ONCE**
+Otherwise you need to press enter once more
 
 This is for algorithms course, to recreate the enigma machine with code.
 
